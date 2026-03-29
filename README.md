@@ -46,3 +46,10 @@ Initialized Express server with TypeScript support.
 npm install
 npm run dev
 ```
+
+## ✅ Step 2 — MongoDB Connection
+
+- Added centralized database configuration.
+- Server will now only start if MongoDB connection is successful.
+- All modules can import mongoose models without worrying about connection details.
+
