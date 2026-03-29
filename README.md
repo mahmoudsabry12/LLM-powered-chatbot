@@ -53,3 +53,22 @@ npm run dev
 - Server will now only start if MongoDB connection is successful.
 - All modules can import mongoose models without worrying about connection details.
 
+
+## ✅ Step 3 — Meeting Module
+
+- Created `Meeting` module with Mongoose schema, service, controller, and routes
+- Endpoints:
+  - POST `/api/meetings` → Create new meeting
+  - GET `/api/meetings` → List all meetings
+- Supports storing transcript, summary, action items, decisions, risks
+- Ready for AI integration
+
+### Example POST body:
+```json
+{
+  "transcript": "Ahmed will design UI. Sara will deploy backend. Decide beta release in July.",
+  "summary": "",
+  "actionItems": [],
+  "decisions": [],
+  "risks": []
+}
