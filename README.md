@@ -72,3 +72,21 @@ npm run dev
   "decisions": [],
   "risks": []
 }
+
+
+## ✅ Step 4 — AI Service Integration
+
+- Created `ai.service.ts` to handle OpenAI API calls
+- Automatically analyzes meeting transcripts on creation
+- Extracts:
+  - summary
+  - action items (task, owner, priority)
+  - decisions
+  - risks
+- Service is modular → can swap AI model easily
+
+**Example POST request:**
+```json
+{
+  "transcript": "Ahmed will design UI. Sara will deploy backend. Decide beta release in July."
+}
