@@ -1,8 +1,7 @@
-// src/services/ai.service.ts
 import OpenAI from "openai";
 
 const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY || '',
 });
 
 // Function to summarize transcript and extract action items, decisions, risks

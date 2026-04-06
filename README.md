@@ -73,20 +73,30 @@ npm run dev
   "risks": []
 }
 
+```
 
-## ✅ Step 4 — AI Service Integration
+## ⚙️ Features
 
-- Created `ai.service.ts` to handle OpenAI API calls
-- Automatically analyzes meeting transcripts on creation
-- Extracts:
-  - summary
-  - action items (task, owner, priority)
-  - decisions
-  - risks
-- Service is modular → can swap AI model easily
+- Analyze meeting transcripts
+- Extract **summary**, **action items**, **decisions**, **risks**
+- Modular **agents** for each task
+- Separate **prompts** and **AI client**
+- **Workflow orchestration** to combine results
 
-**Example POST request:**
-```json
-{
-  "transcript": "Ahmed will design UI. Sara will deploy backend. Decide beta release in July."
-}
+
+## 📂 Project Structure
+```
+│ aiClient.ts # Wrapper to call OpenAI API
+│
+├─ prompts/
+│ └─ meetingPrompts.ts # All prompt templates
+│
+├─ agents/
+│ ├─ summaryAgent.ts # Extract summary
+│ ├─ actionItemsAgent.ts # Extract action items
+│ └─ risksDecisionsAgent.ts # Extract risks & decisions
+│
+└─ orchestration/
+└─ meetingWorkflow.ts # Organize workflow between agents
+```
+
