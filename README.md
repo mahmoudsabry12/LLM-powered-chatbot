@@ -72,3 +72,31 @@ npm run dev
   "decisions": [],
   "risks": []
 }
+
+```
+
+## ⚙️ Features
+
+- Analyze meeting transcripts
+- Extract **summary**, **action items**, **decisions**, **risks**
+- Modular **agents** for each task
+- Separate **prompts** and **AI client**
+- **Workflow orchestration** to combine results
+
+
+## 📂 Project Structure
+```
+│ aiClient.ts # Wrapper to call OpenAI API
+│
+├─ prompts/
+│ └─ meetingPrompts.ts # All prompt templates
+│
+├─ agents/
+│ ├─ summaryAgent.ts # Extract summary
+│ ├─ actionItemsAgent.ts # Extract action items
+│ └─ risksDecisionsAgent.ts # Extract risks & decisions
+│
+└─ orchestration/
+└─ meetingWorkflow.ts # Organize workflow between agents
+```
+
