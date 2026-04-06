@@ -1,10 +1,10 @@
 import MeetingModel from "./meeting.model";
 import { Meeting } from "./meeting.types";
-import { analyzeMeeting } from "../../services/ai.service";
+import { meetingWorkflow } from "../../services/ai/orchestration/meetingWorkflow";
 
 export const createMeeting = async (meeting: Meeting) => {
   // Call AI to analyze transcript
-  const aiResult = await analyzeMeeting(meeting.transcript);
+  const aiResult = await meetingWorkflow(meeting.transcript);
 
   const newMeeting = new MeetingModel({
     ...meeting,
