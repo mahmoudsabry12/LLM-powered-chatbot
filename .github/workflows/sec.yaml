@@ -1,0 +1,47 @@
+name: Security Scan Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 3 * * *"
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Install Nuclei
+        run: |
+          sudo apt update
+          sudo apt install -y wget unzip
+
+          wget https://github.com/projectdiscovery/nuclei/releases/download/v3.7.1/nuclei_3.7.1_linux_amd64.zip
+
+          unzip -o nuclei_3.7.1_linux_amd64.zip
+
+          sudo mv nuclei /usr/local/bin/
+
+          nuclei -update-templates
+
+      - name: Run Security Scan
+        run: |
+          python security_scan.py
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-report
+          path: security_report.json

@@ -1,4 +1,3 @@
-// src/modules/meeting/meeting.route.ts
 import { Router } from "express";
 import { createMeetingHandler, getMeetingsHandler } from "./meeting.controller";
 
