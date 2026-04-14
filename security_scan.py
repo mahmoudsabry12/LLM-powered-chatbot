@@ -3,7 +3,7 @@ import requests
 import json
 from datetime import datetime
 
-TARGET = "http://localhost:5000" 
+TARGET = "https://llm-powered-chatbot-silk.vercel.app/" 
 OUTPUT_FILE = "security_report.json"
 
 
